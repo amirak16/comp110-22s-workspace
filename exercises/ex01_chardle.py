@@ -1,6 +1,6 @@
 """EX01 - Chardle - A cute step toward Wordle."""
 
-_author_ = "730485037"
+__author__ = "730485037"
 
 meaningful_word: str = input("Enter a 5-character word.")
 if len(meaningful_word) != 5:
@@ -13,7 +13,6 @@ meaningful_letter: str = input("Enter a single character.")
 print("Searching for " + meaningful_letter + " in " + meaningful_word)
 
 goodnumber: int = 0
-
 
 
 if meaningful_word[0] == meaningful_letter:
@@ -37,4 +36,4 @@ if meaningful_word[4] == meaningful_letter:
     goodnumber = goodnumber + 1
 
 
-print(goodnumber , " instances of", meaningful_letter , "found in" , meaningful_word)
+print(str(goodnumber) + " instances of " + meaningful_letter + " found in " + meaningful_word)
