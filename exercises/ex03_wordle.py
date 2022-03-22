@@ -3,19 +3,19 @@
 __author__ = "730485037"
  
  
-def contains_char(ss: str, sc: str) -> bool:
-    """Generates a character that is being searched for in the string of the second parameter."""
+def contains_char(ss: str, sc: str) -> bool:          # ss= single string and sc= single character
+    """Generates a character that is being searched for in the string of the second parameter.""" 
     assert len(sc) == 1
  
     foundletter: bool = False
     boxes: int = 0
   
     while boxes < len(ss):
-       if sc == ss[boxes]:
-           foundletter is True
-           return True
-       else:
-           boxes += 1
+        if sc == ss[boxes]:
+            foundletter is True
+            return True
+        else:
+            boxes += 1
     return False
  
  
@@ -29,24 +29,17 @@ def emojified(gp: str, sp: str) -> str:         # gp= guess parameter and sp sec
     i: int = 0
     chainOfBoxes: str = ""
  
-    while (i < len(sp)):
-       if (gp[i] == sp[i]):
-           chainOfBoxes += GREEN_BOX
-           i += 1
-       else:
-           foundletter: bool = False
-           boxes: int = 0
-           while boxes < len(sp):
-               if gp[i] == sp[boxes]:
-                   foundletter = True
-               boxes += 1
-           if foundletter is False:
-               chainOfBoxes += WHITE_BOX
-               i += 1
-           else:
-               chainOfBoxes += YELLOW_BOX
-               i += 1
- 
+    while i < len(sp):
+        if contains_char(sp, gp[i]) is True:
+            if(gp[i] == sp[i]):
+                chainOfBoxes += GREEN_BOX
+            i += 1
+        else:
+            chainOfBoxes += YELLOW_BOX
+            i += 1
+    else:
+        chainOfBoxes += WHITE_BOX
+        i += 1
     return chainOfBoxes
   
  
@@ -55,7 +48,7 @@ def input_guess(gp: int) -> str:
     guess: str = input(f"Enter a {gp} character word: ")
  
     while gp != len(guess):
-       guess = input(f"That wasn't {gp} chars! Try again: ")
+        guess = input(f"That wasn't {gp} chars! Try again: ")
     return guess
  
  
@@ -89,4 +82,3 @@ def main() -> None:
  
 if __name__ == "__main__":
     main()
-
